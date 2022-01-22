@@ -1,7 +1,7 @@
 -- slide 9
 create table watched(
-                        title varchar,
-                        my_rating int
+  title varchar,
+  my_rating int
 )
 
 -- slide 11
