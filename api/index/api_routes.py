@@ -61,3 +61,16 @@ def record_watched(movie, rating):
     except Exception as e:
         status = "Error! = " + str(e)
     return status
+
+
+@api.route("/updated_watched/<movie>/<rating>", methods=['PUT'])
+def updated_watched_rating(movie, rating):
+    try:
+        query = text(f"update watched set my_rating = {rating} where title = '{movie}'")
+        session.execute(query)
+        session.commit()
+        status = f"You updated {movie}'s rating to {rating}"
+        return status
+    except Exception as e:
+        status = "Error! = " + str(e)
+    return status
