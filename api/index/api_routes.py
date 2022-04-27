@@ -39,17 +39,6 @@ def highest_rated():
     return status
 
 
-@api.route("/netflix_originals/longest", methods=['GET'])
-def longest():
-    try:
-        result = session.query(NetflixOriginal).order_by(desc(NetflixOriginal.runtime)).limit(10).all()
-        format_result = [r.serialize() for r in result]
-        return jsonify(format_result)
-    except Exception as e:
-        status = "Error! = " + str(e)
-    return status
-
-
 @api.route("/watched/<movie>/<rating>", methods=['POST'])
 def record_watched(movie, rating):
     try:

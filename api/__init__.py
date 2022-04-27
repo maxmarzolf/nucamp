@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 
 db = SQLAlchemy()
 migrate = Migrate()
-engine = create_engine('postgresql+psycopg2://postgres:admin123@localhost:5432/netflix')
+engine = create_engine('')
 
 Session = sessionmaker(bind=engine)
 session = Session()
